@@ -1,0 +1,14 @@
+C:\Users\deepa\source\repos\PPM\PPM\bin\Debug\netcoreapp3.1\PPM.exe
+C:\Users\deepa\source\repos\PPM\PPM\bin\Debug\netcoreapp3.1\PPM.deps.json
+C:\Users\deepa\source\repos\PPM\PPM\bin\Debug\netcoreapp3.1\PPM.runtimeconfig.json
+C:\Users\deepa\source\repos\PPM\PPM\bin\Debug\netcoreapp3.1\PPM.runtimeconfig.dev.json
+C:\Users\deepa\source\repos\PPM\PPM\bin\Debug\netcoreapp3.1\PPM.dll
+C:\Users\deepa\source\repos\PPM\PPM\bin\Debug\netcoreapp3.1\PPM.pdb
+C:\Users\deepa\source\repos\PPM\PPM\obj\Debug\netcoreapp3.1\PPM.csproj.AssemblyReference.cache
+C:\Users\deepa\source\repos\PPM\PPM\obj\Debug\netcoreapp3.1\PPM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\deepa\source\repos\PPM\PPM\obj\Debug\netcoreapp3.1\PPM.AssemblyInfoInputs.cache
+C:\Users\deepa\source\repos\PPM\PPM\obj\Debug\netcoreapp3.1\PPM.AssemblyInfo.cs
+C:\Users\deepa\source\repos\PPM\PPM\obj\Debug\netcoreapp3.1\PPM.csproj.CoreCompileInputs.cache
+C:\Users\deepa\source\repos\PPM\PPM\obj\Debug\netcoreapp3.1\PPM.dll
+C:\Users\deepa\source\repos\PPM\PPM\obj\Debug\netcoreapp3.1\PPM.pdb
+C:\Users\deepa\source\repos\PPM\PPM\obj\Debug\netcoreapp3.1\PPM.genruntimeconfig.cache
