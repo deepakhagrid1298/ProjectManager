@@ -96,7 +96,7 @@ namespace PPM
                     prolist.Add(pro);
                     Console.WriteLine("Project Added successfully");
                 }
-            Console.WriteLine(@"Do you want to add more Project? Y\N\n");
+            Console.WriteLine(@"Do you want to add more Project? Y\N");
             char choice = Console.ReadKey().KeyChar;
             switch (Char.ToUpper(choice))
             {
@@ -151,7 +151,7 @@ namespace PPM
                     emplist.Add(employee);
                     Console.WriteLine("Employee Added successfully");
                 }
-                Console.WriteLine(@"Do you want to add more Employee? Y\N\n");
+                Console.WriteLine(@"Do you want to add more Employee? Y\N");
                 char choice = Console.ReadKey().KeyChar;
                 switch (Char.ToUpper(choice))
                 {
@@ -202,7 +202,7 @@ namespace PPM
                     rolelist.Add(r);
                     Console.WriteLine("Role Added successfully");
                 }
-                Console.WriteLine(@"Do you want to add more Role? Y\N\n");
+                Console.WriteLine(@"Do you want to add more Role? Y\N");
                 char choice = Console.ReadKey().KeyChar;
                 switch (Char.ToUpper(choice))
                 {
