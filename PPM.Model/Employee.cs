@@ -1,6 +1,10 @@
-﻿namespace PPM
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PPM.Model
 {
-    internal class Employee
+    public class Employee
     {
         public int EmpId { get; set; }
         public string FirstName { get; set; }

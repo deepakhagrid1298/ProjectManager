@@ -1,0 +1,10 @@
+C:\Users\deepa\source\repos\PPM\PPM.Model\bin\Debug\netcoreapp3.1\PPM.Model.deps.json
+C:\Users\deepa\source\repos\PPM\PPM.Model\bin\Debug\netcoreapp3.1\PPM.Model.dll
+C:\Users\deepa\source\repos\PPM\PPM.Model\bin\Debug\netcoreapp3.1\PPM.Model.pdb
+C:\Users\deepa\source\repos\PPM\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.csproj.AssemblyReference.cache
+C:\Users\deepa\source\repos\PPM\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\deepa\source\repos\PPM\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.AssemblyInfoInputs.cache
+C:\Users\deepa\source\repos\PPM\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.AssemblyInfo.cs
+C:\Users\deepa\source\repos\PPM\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.csproj.CoreCompileInputs.cache
+C:\Users\deepa\source\repos\PPM\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.dll
+C:\Users\deepa\source\repos\PPM\PPM.Model\obj\Debug\netcoreapp3.1\PPM.Model.pdb

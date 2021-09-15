@@ -1,0 +1,5 @@
+C:\Users\deepa\source\repos\PPM\PPM.UI.Console\obj\Debug\netcoreapp3.1\PPM.UI.Console.csproj.AssemblyReference.cache
+C:\Users\deepa\source\repos\PPM\PPM.UI.Console\obj\Debug\netcoreapp3.1\PPM.UI.Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\deepa\source\repos\PPM\PPM.UI.Console\obj\Debug\netcoreapp3.1\PPM.UI.Console.AssemblyInfoInputs.cache
+C:\Users\deepa\source\repos\PPM\PPM.UI.Console\obj\Debug\netcoreapp3.1\PPM.UI.Console.AssemblyInfo.cs
+C:\Users\deepa\source\repos\PPM\PPM.UI.Console\obj\Debug\netcoreapp3.1\PPM.UI.Console.csproj.CoreCompileInputs.cache

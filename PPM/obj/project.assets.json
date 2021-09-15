@@ -1,11 +1,69 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "PPM.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "PPM.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PPM.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PPM.Domain.dll": {}
+        }
+      },
+      "PPM.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/PPM.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PPM.Model.dll": {}
+        }
+      },
+      "PPM.UI.Cons/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "PPM.Domain": "1.0.0",
+          "PPM.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PPM.UI.Cons.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PPM.UI.Cons.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "PPM.Domain/1.0.0": {
+      "type": "project",
+      "path": "../PPM.Domain/PPM.Domain.csproj",
+      "msbuildProject": "../PPM.Domain/PPM.Domain.csproj"
+    },
+    "PPM.Model/1.0.0": {
+      "type": "project",
+      "path": "../PPM.Model/PPM.Model.csproj",
+      "msbuildProject": "../PPM.Model/PPM.Model.csproj"
+    },
+    "PPM.UI.Cons/1.0.0": {
+      "type": "project",
+      "path": "../PPM.UI.Console/PPM.UI.Cons.csproj",
+      "msbuildProject": "../PPM.UI.Console/PPM.UI.Cons.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "PPM.Domain >= 1.0.0",
+      "PPM.Model >= 1.0.0",
+      "PPM.UI.Cons >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\deepa\\.nuget\\packages\\": {},
@@ -41,7 +99,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\deepa\\source\\repos\\PPM\\PPM.Domain\\PPM.Domain.csproj": {
+              "projectPath": "C:\\Users\\deepa\\source\\repos\\PPM\\PPM.Domain\\PPM.Domain.csproj"
+            },
+            "C:\\Users\\deepa\\source\\repos\\PPM\\PPM.Model\\PPM.Model.csproj": {
+              "projectPath": "C:\\Users\\deepa\\source\\repos\\PPM\\PPM.Model\\PPM.Model.csproj"
+            },
+            "C:\\Users\\deepa\\source\\repos\\PPM\\PPM.UI.Console\\PPM.UI.Cons.csproj": {
+              "projectPath": "C:\\Users\\deepa\\source\\repos\\PPM\\PPM.UI.Console\\PPM.UI.Cons.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
