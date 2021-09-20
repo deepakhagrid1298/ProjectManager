@@ -10,5 +10,6 @@ namespace PPM.Model
         public string ProjectName { get; set; }
         public DateTime StartDate { get; set; }
         public long Budget { get; set; }
+        public List<Employee> ProEmplist;
     }
 }

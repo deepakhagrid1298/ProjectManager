@@ -63,6 +63,28 @@ namespace PPM.Domain
             }
             return roleResult;
         }
+        public ActionResult IsValidRole(Role role)
+        {
+            ActionResult action = new ActionResult() { IsSuccess = true };
+            try
+            {
+                if (rolelist.Exists(r => r.RoleName == role.RoleName))
+                {
+                    action.IsSuccess = true;
+                }
+                else
+                {
+                    action.IsSuccess = false;
+                    action.Status = "Role is not in the Role List" + role.RoleName;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error occured" + e.ToString());
+                action.IsSuccess = false;
+            }
+            return action;
+        }
 
     }
 }

@@ -1,7 +1,6 @@
-﻿using PPM.Model;
+﻿using PPM.Domain;
+using PPM.Model;
 using System;
-using PPM.Domain;
-using PPM.Model.Common;
 
 namespace PPM.UI.Cons
 {
@@ -12,6 +11,7 @@ namespace PPM.UI.Cons
             ProjectManager m1 = new ProjectManager();
             EmployeeManager m2 = new EmployeeManager();
             RoleManager m3 = new RoleManager();
+            Employee emp = new Employee();
             Console.WriteLine("My Menu:-");
             Console.WriteLine("1:- Add Project");
             Console.WriteLine("2:- View Projects");
@@ -19,12 +19,14 @@ namespace PPM.UI.Cons
             Console.WriteLine("4:- View Employees");
             Console.WriteLine("5:- Add Role");
             Console.WriteLine("6:- View Roles");
-            Console.WriteLine("7:- Quit");
-
+            Console.WriteLine("7:- Add Employee to project");
+            Console.WriteLine("8:- Delete Employee from project");
+            Console.WriteLine("9:- View project Detail");
+            Console.WriteLine("10:- Quit");
             bool i = true;
             while (i)
             {
-                Console.Write("select from 1 to 7 ");
+                Console.Write("select from 1 to 10 ");
                 Console.WriteLine("");
                 int num = int.Parse(Console.ReadLine());
                 switch (num)
@@ -42,21 +44,12 @@ namespace PPM.UI.Cons
                         Console.WriteLine("Enter Project Budget");
                         p2.Budget = Convert.ToInt64(Console.ReadLine());
 
-                        /*if (prolist.Exists(prolist => prolist.projectId == p2.ProjectId))
-                        {
-                            Console.WriteLine("project already exists");
-                        }
-                        else
-                        {
-                            prolist.Add(p2);
-                        }*/
-                        
-                        var ar=m1.AddProject(p2);
+                        var ar = m1.AddProject(p2);
                         Console.WriteLine(ar.Status);
 
                         break;
                     case 2:
-                        var d1=m1.GetProject();
+                        var d1 = m1.GetProject();
                         int c = 0;
                         foreach (Project p in d1.results)
                         {
@@ -69,27 +62,19 @@ namespace PPM.UI.Cons
                         }
                         break;
                     case 3:
-                        Employee emp = new Employee();
+
 
                         Console.WriteLine("Enter Employee Id");
                         emp.EmpId = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Enter Employee Fullname");
+                        Console.WriteLine("Enter Employee FirstName");
                         emp.FirstName = Console.ReadLine();
-                        Console.WriteLine("Enter Employee Contact");
+                        Console.WriteLine("Enter Employee LastName");
                         emp.LastName = Console.ReadLine();
                         Console.WriteLine("Enter Employee Email");
                         emp.Email = Console.ReadLine();
 
-                        var ar2=m2.AddEmployee(emp);
+                        var ar2 = m2.AddEmployee(emp);
                         Console.WriteLine(ar2.Status);
-                        /*if (emplist.Exists(emplist => emplist.Id == emp.Id))
-                        {
-                            Console.WriteLine("employee already exists");
-                        }
-                        else
-                        {
-                            emplist.Add(emp);
-                        }*/
                         break;
                     case 4:
                         int j = 0;
@@ -102,9 +87,6 @@ namespace PPM.UI.Cons
                             Console.WriteLine("Employee FirstName:" + item.FirstName);
                             Console.WriteLine("Employee Lastname:" + item.LastName);
                             Console.WriteLine("Employee Email:" + item.Email);
-
-
-
                             j++;
                         }
                         break;
@@ -116,19 +98,8 @@ namespace PPM.UI.Cons
                         rol.RoleId = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Enter RoleName");
                         rol.RoleName = Console.ReadLine();
-                        var ar3=m3.AddRole(rol);
+                        var ar3 = m3.AddRole(rol);
                         Console.WriteLine(ar3.Status);
-                        /*if (rolelist.Exists(rolelist => rolelist.RoleId == role.RoleId))
-                        {
-                            Console.WriteLine("Role already exists");
-                        }
-                        else
-                        {
-                            rolelist.Add(rol);
-                        }*/
-
-
-
                         break;
                     case 6:
                         int count = 0;
@@ -136,9 +107,6 @@ namespace PPM.UI.Cons
                         foreach (Role r in d3.results)
                         {
                             Console.WriteLine("Role no " + count);
-
-
-
                             Console.WriteLine("Role id:" + r.RoleId);
                             Console.WriteLine("Role Name:" + r.RoleName);
 
@@ -146,6 +114,44 @@ namespace PPM.UI.Cons
                         }
                         break;
                     case 7:
+                        Console.WriteLine("Enter Project id in which u want to enter employee:");
+                        int p1 = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter employee id which u want add");
+                        int p3 = Convert.ToInt32(Console.ReadLine());
+                        var v1 = m1.AddEmpToProject(emp, p1);
+                        Console.WriteLine(v1.Status);
+                        break;
+                    case 8:
+                        Console.WriteLine("Enter Employee id which u want delete:");
+                        int n1 = Convert.ToInt32(Console.ReadLine());
+                        var v2 = m1.DeleteEmpFromProject(n1, emp);
+                        Console.WriteLine(v2.Status);
+                        break;
+                    case 9:
+                        Console.WriteLine("Project Details with Employee Assigned:-");
+                        var resultPro = m1.GetProject();
+                        if (resultPro.IsSuccess)
+                        {
+                            foreach (Project result in resultPro.results)
+                            {
+                                Console.WriteLine("Project ID: " + result.ProjectId + "\nProject Name: " + result.ProjectName + "\nStarting Date: " + result.StartDate + "\nBudget: " + result.Budget);
+                                Console.WriteLine("Employee Assigned: ");
+                                if (result.ProEmplist != null)
+                                {
+                                    foreach (Employee e in result.ProEmplist)
+                                    {
+                                        Console.WriteLine("Employee Id: " + e.EmpId + " " + "Employee First Name: " + e.FirstName + " " + "Employee Last: " + e.LastName);
+                                    }
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine(resultPro.Status);
+                        }
+                        break;
+                    case 10:
                         Environment.Exit(0);
                         break;
 
@@ -156,84 +162,6 @@ namespace PPM.UI.Cons
                         break;
                 }
             }
-
-        }
-
-            /*private bool AddEmployee()
-            {
-
-                Employee employee = new Employee();
-                Console.Write("Enter Employee Id(give integer value only):");
-                employee.EmpId = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Enter Employee FirstName: ");
-                employee.FirstName = Console.ReadLine();
-                Console.Write("Enter Employee LastName: ");
-                employee.LastName = Console.ReadLine();
-                Console.Write("Enter Employee Email: ");
-                employee.Email = Console.ReadLine();
-
-                EmployeeManager employeeManager = new EmployeeManager();
-                var result = employeeManager.AddEmployee(employee);
-                if (!result.IsSuccess)
-                {
-                    Console.WriteLine("Employee Failed to add!");
-                    Console.WriteLine(result.Status);
-                }
-                else
-                {
-                    Console.WriteLine(result.Status);
-                }
-                return result.IsSuccess;
-
-            }
-
-            private bool AddRole()
-            {
-                Role role = new Role();
-                Console.Write("Enter Role Id ");
-                role.RoleId = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Enter Role Name: ");
-                role.RoleName = Console.ReadLine();
-
-                RoleManager roleManager = new RoleManager();
-                var result = roleManager.AddRole(role);
-                if (!result.IsSuccess)
-                {
-                    Console.WriteLine("Role Failed to Add");
-                    Console.WriteLine(result.Status);
-                }
-                else
-                {
-                    Console.WriteLine(result.Status);
-                }
-                return result.IsSuccess;
-            }
-
-            private bool AddProject()
-            {
-                Project project = new Project();
-                Console.Write("Enter Project ID(give integer value only): ");
-                project.ProjectId = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Enter Project Name: ");
-                project.ProjectName = Console.ReadLine();
-                Console.Write("Enter Project Budget: ");
-                project.Budget = Convert.ToInt64(Console.ReadLine());
-                Console.Write("Enter Project Start Date");
-                project.StartDate = Convert.ToDateTime(Console.ReadLine());
-
-                ProjectManager projectManager = new ProjectManager();
-                var result = projectManager.AddProject(project);
-                if (!result.IsSuccess)
-                {
-                    Console.WriteLine("Project failed to Add");
-                    Console.WriteLine(result.Status);
-                }
-                else
-                {
-                    Console.WriteLine(result.Status);
-                }
-                return result.IsSuccess;
-            }*/
-
-        }
+        }    
     }
+}

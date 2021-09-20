@@ -59,5 +59,35 @@ namespace PPM.Domain
             }
             return employeeResult;
         }
+        public ActionResult IsValidEmp(Employee employee)
+        {
+            ActionResult actionResult = new ActionResult() { IsSuccess = true };
+            try
+            {
+                if (emplist.Exists(e => e.EmpId == employee.EmpId))
+                {
+                    actionResult.Status = "Validation Successful!";
+                }
+                else
+                {
+                    actionResult.IsSuccess = false;
+                    actionResult.Status = "ID is not in the Employee List " + employee.EmpId;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error occured" + e.ToString());
+                actionResult.IsSuccess = false;
+            }
+            return actionResult;
+        }
+
+        public Employee GetEmployeeByRole(Employee employeeId)
+        {
+            Employee emp = new Employee();
+            emp.FirstName = emplist.Single(e => e.EmpId == employeeId.EmpId).FirstName;
+            emp.LastName = emplist.Single(e => e.EmpId == employeeId.EmpId).LastName;
+            return emp;
+        }
     }
 }
