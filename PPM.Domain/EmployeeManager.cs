@@ -13,28 +13,28 @@ namespace PPM.Domain
         //{
         //    _employeeList = new List<Employee>();
         //}
-        public ActionResult AddEmployee(Employee emp)
+        public ActionResult AddEmployee(Employee emp1)
         {
             ActionResult result = new ActionResult() { IsSuccess = true };
             try
             {
                 if (emplist.Count > 0)
                 {
-                    if (emplist.Exists(em => em.EmpId == emp.EmpId))
+                    if (emplist.Exists(em => em.EmpId == emp1.EmpId))
                     {
                         result.IsSuccess = false;
-                        result.Status = "ID Already Exists " + emp.EmpId;
+                        result.Status = "ID Already Exists " + emp1.EmpId;
                     }
                     else
                     {
-                        emplist.Add(emp);
+                        emplist.Add(emp1);
                         result.Status = "Employee Added";
                     }
                 }
                 else
                 {
-                    emplist.Add(emp);
-                    result.Status = "New Employee Added";
+                    emplist.Add(emp1);
+                    result.Status = "Employee Added Successfully";
                 }
             }
             catch (Exception ex)
