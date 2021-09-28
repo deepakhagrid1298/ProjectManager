@@ -11,17 +11,13 @@ namespace PPM.Domain
     public class RoleManager
     {
         private static List<Role> rolelist = new List<Role>();
-        //public RoleManager()
-        //{
-        //    _roleList = new List<Role>();
-        //}
 
         public ActionResult AddRole(Role role)
         {
             ActionResult result = new ActionResult() { IsSuccess = true };
             try
             {
-                if (rolelist.Count() > 0)
+                if (rolelist.Count > 0)
                 {
                     if (rolelist.Exists(r => r.RoleId == role.RoleId))
                     {
@@ -52,7 +48,7 @@ namespace PPM.Domain
         public DataResult<Role> GetRole()
         {
             DataResult<Role> roleResult = new DataResult<Role>() { IsSuccess = true };
-            if (rolelist.Count() > 0)
+            if (rolelist.Count > 0)
             {
                 roleResult.results = rolelist;
             }

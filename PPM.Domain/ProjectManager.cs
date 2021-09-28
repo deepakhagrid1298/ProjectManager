@@ -10,14 +10,8 @@ namespace PPM.Domain
 {
     public class ProjectManager
     {
-        public static List<Project> prolist = new List<Project>();
-        
-        //public ProjectManager()
-        //{
-        //    _projectList = new List<Project>();
-        //}
-
-        public ActionResult AddProject(Project pro)
+        private static List<Project> prolist = new List<Project>();
+       public ActionResult AddProject(Project pro)
         {
             ActionResult result = new ActionResult() { IsSuccess = true };
             try
@@ -121,7 +115,6 @@ namespace PPM.Domain
 
         public ActionResult DeleteEmpFromProject(int id, Employee employee)
         {
-            Project project = new Project();
             ActionResult action = new ActionResult() { IsSuccess = true };
             try
             {

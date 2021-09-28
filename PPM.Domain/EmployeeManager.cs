@@ -9,10 +9,6 @@ namespace PPM.Domain
     public class EmployeeManager
     {
         private static List<Employee> emplist = new List<Employee>();
-        //public EmployeeManager()
-        //{
-        //    _employeeList = new List<Employee>();
-        //}
         public ActionResult AddEmployee(Employee emp1)
         {
             ActionResult result = new ActionResult() { IsSuccess = true };

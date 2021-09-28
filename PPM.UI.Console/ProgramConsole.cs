@@ -11,7 +11,6 @@ namespace PPM.UI.Cons
             ProjectManager m1 = new ProjectManager();
             EmployeeManager m2 = new EmployeeManager();
             RoleManager m3 = new RoleManager();
-            Employee emp = new Employee();
             Console.WriteLine("My Menu:-");
             Console.WriteLine("1:- Add Project");
             Console.WriteLine("2:- View Projects");
@@ -56,7 +55,6 @@ namespace PPM.UI.Cons
                         var d2 = m2.GetEmployee();
                         foreach (Employee item in d2.results)
                         {
-
                             Console.WriteLine("Employee no " + i);
                             Console.WriteLine("Employee id:" + item.EmpId);
                             Console.WriteLine("Employee FirstName:" + item.FirstName);
@@ -120,7 +118,7 @@ namespace PPM.UI.Cons
             }
         }
 
-        private bool AddEmployee()
+        private void AddEmployee()
         {
             Employee employee = new Employee();
             try
@@ -131,7 +129,6 @@ namespace PPM.UI.Cons
                 employee.FirstName = Console.ReadLine();
                 Console.Write("Enter Employee LastName: ");
                 employee.LastName = Console.ReadLine();
-                //employee.EmployeeName = String.Concat(employee.FirstName.ToUpper(), " ", employee.LastName.ToUpper());
                 Console.Write("Enter Employee Email ");
                 employee.Email = Console.ReadLine();
             }
@@ -152,11 +149,11 @@ namespace PPM.UI.Cons
             {
                 Console.WriteLine(resultEmployee.Status);
             }
-            return resultEmployee.IsSuccess;
+            
 
         }
 
-        private bool AddRole()
+        private void AddRole()
         {
             Role role = new Role();
             try
@@ -185,10 +182,10 @@ namespace PPM.UI.Cons
             {
                 Console.WriteLine(resultRole.Status);
             }
-            return resultRole.IsSuccess;
+            
         }
 
-        private static bool AddProject()
+        private static void AddProject()
         {
             Project project = new Project();
             try
@@ -220,10 +217,10 @@ namespace PPM.UI.Cons
             {
                 Console.WriteLine(resultProject.Status);
             }
-            return resultProject.IsSuccess;
+            
         }
 
-        private static bool AddEmpToProject()
+        private static void AddEmpToProject()
         {
             ProjectManager projectManager = new ProjectManager();
             EmployeeManager employeeManager = new EmployeeManager();
@@ -264,7 +261,6 @@ namespace PPM.UI.Cons
             {
 
                 var obj = employeeManager.GetEmployeeByRole(employee);
-                //employee.RoleName = obj.RoleName;
                 employee.FirstName = obj.FirstName;
                 var result = projectManager.AddEmpToProject(employee, projectId);
 
@@ -277,16 +273,16 @@ namespace PPM.UI.Cons
                 {
                     Console.WriteLine(result.Status);
                 }
-                return result.IsSuccess;
+                
             }
             else
             {
                 Console.WriteLine(valid.Status);
             }
-            return valid.IsSuccess;
+           
         }
 
-        private static bool RemoveEmpFromProject()
+        private static void RemoveEmpFromProject()
         {
             ProjectManager projectManager = new ProjectManager();
             Employee employee = new Employee();
@@ -318,13 +314,13 @@ namespace PPM.UI.Cons
             var result = projectManager.DeleteEmpFromProject(projectId, employee);
             if (!result.IsSuccess)
             {
+                Console.WriteLine("Failed to Delete Employee into project");
                 Console.WriteLine(result.Status);
             }
             else
             {
                 Console.WriteLine(result.Status);
             }
-            return result.IsSuccess;
         }
     }
 }
